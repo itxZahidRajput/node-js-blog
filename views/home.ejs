@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Node.js Blog</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+        <div class="container mt-3">
+            <div class="row row-cols-4">
+                <% locals.blogs.forEach(blog=> { %>
+                    <div class="col">
+                    <div class="card col" style="width: 18rem;">
+                        <img src="<%=blog.coverImageURL %>" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=blog.title %>
+                            </h5>
+
+                            <a href="/blog/<%=blog._id %>" class="btn btn-primary">Read Blog</a>
+                        </div>
+                    </div>
+                </div>
+                    <% }) %>
+            </div>
+        </div>
+
+        <%- include('./partials/scripts') %>
+</body>
+
+</html>

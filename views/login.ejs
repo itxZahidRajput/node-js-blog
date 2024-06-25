@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Login - Node.js Blog</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+        <div class="container mt-3">
+            <h2> Login </h2>
+
+            <% if (locals.error) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= locals.error %>
+                </div>
+                <% } %>
+
+                    <form class="form form-control" action="/user/login" method="post">
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+        </div>
+
+        <%- include('./partials/scripts') %>
+</body>
+
+</html>
